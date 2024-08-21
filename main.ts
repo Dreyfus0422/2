@@ -1,6 +1,14 @@
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    game.reset()
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.builtin.forestTiles0, function (sprite, location) {
+    info.changeScoreBy(1)
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.floorDarkDiamond, function (sprite, location) {
+    info.changeScoreBy(5)
+})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     music.play(music.createSoundEffect(WaveShape.Sine, 3201, 1, 255, 0, 300, SoundExpressionEffect.None, InterpolationCurve.Curve), music.PlaybackMode.UntilDone)
-    controller.configureRepeatEventDefaults(500, 30)
 })
 let mySprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
@@ -23,3 +31,4 @@ let mySprite = sprites.create(img`
 tiles.setCurrentTilemap(tilemap`level2`)
 controller.moveSprite(mySprite, 100, 100)
 scene.cameraFollowSprite(mySprite)
+info.setScore(0)
