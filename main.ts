@@ -13,6 +13,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairWest, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level8`)
 })
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairLarge, function (sprite, location) {
+    tiles.setCurrentTilemap(tilemap`level2`)
+})
+game.splash("Ready? Press A! (bottom-right corner)")
 let mySprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
